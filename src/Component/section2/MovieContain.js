@@ -6,7 +6,8 @@ import Addwatch from './Addwatch.js';
 
 function MovieContain({ movieshow , showAddwatch, setShowAddwatch ,close , setClose }) {
     const arrowHandler = () => {
-        setShowAddwatch(!showAddwatch);
+        setShowAddwatch(false);
+        setClose(true);
     };
 
     if (!movieshow) {
@@ -15,13 +16,20 @@ function MovieContain({ movieshow , showAddwatch, setShowAddwatch ,close , setCl
 
     return (
         <> 
-         {
-            !close && (  // Use `!close` to show Addwatch when `close` is false
+         {/* {
+            close && (  // Use `!close` to show Addwatch when `close` is false
+                <Addwatch movieshow={movieshow} setClose={setClose} close={close} />
+            )
+        } */}
+        
+        <div style={{ width: '40%',backgroundColor:'red' }} className='movie-details-div'>
+
+        {
+            close && (  // Use `!close` to show Addwatch when `close` is false
                 <Addwatch movieshow={movieshow} setClose={setClose} close={close} />
             )
         }
-        
-        <div style={{ width: '40%' }} className='movie-details-div'>
+
             { showAddwatch && (
                 <div className='movie-details'>
                     <ArrowBackIcon onClick={arrowHandler} /> {/* Back arrow */}

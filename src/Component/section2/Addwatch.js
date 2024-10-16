@@ -5,16 +5,15 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'; // Import ArrowBackIc
 
 function Addwatch({ movieshow, visible, onBack  ,setClose, close })  {
 
-    if (!visible) return null; // Don't render if not visible
+    // if (!visible) return null; // remove this line
 
     return (
         <>
-            {close && (
                 <div>
                 <UperSecMain movieshow={movieshow} close={close} />
             <MovieTodo movieshow={movieshow} setClose={setClose} close={close} />
             </div>
-            )}
+           
         </>
     );
     
@@ -23,7 +22,7 @@ function Addwatch({ movieshow, visible, onBack  ,setClose, close })  {
 const UperSecMain = ({ movieshow, close }) => {
     return (
         <>
-            {close && 
+           
             <div className='uperSecMain'>
                 <h3>Movie you have Watched</h3>
                 <div className='uperSec'>
@@ -32,7 +31,7 @@ const UperSecMain = ({ movieshow, close }) => {
                     <p>⏳ {movieshow?.Runtime || '0 min'}</p>
                 </div>
             </div>
-            }
+           
         </>
     );
 };
@@ -40,7 +39,7 @@ const UperSecMain = ({ movieshow, close }) => {
 const MovieTodo = ({ movieshow, setClose, close }) => {
     return (
         <>
-            {!close && ( // Show when close is false (default)
+          
                 <div className='movietoddo'>
                     <div style={{ width: '80px', height: '80px' }}>
                         <img width='100%' height='100%' src='/images/logo.png' alt="Logo" />
@@ -55,7 +54,7 @@ const MovieTodo = ({ movieshow, setClose, close }) => {
                         </div>
                     </div>
                 </div>
-            )}
+       
         </>
     );
 };

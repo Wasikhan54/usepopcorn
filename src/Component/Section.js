@@ -11,7 +11,7 @@ function Section({ input, setLoading }) {
     const [moviesData, setMoviesData] = useState([])
     const [movieshow, setMovieshow] = useState({})
     const [showAddwatch, setShowAddwatch] = useState(false);
-    const [close , setClose] = useState(true)
+    const [close , setClose] = useState(true) //by defualt true
 
     useEffect(() => {
         if (input && input.length > 4) { fetchApi() }
@@ -51,7 +51,7 @@ export default Section
 
 
 
-const Movies = ({ moviesData, setMovieshow, movieshow, setLoading, showAddwatch, setShowAddwatch }) => {
+const Movies = ({ moviesData, setMovieshow,close,setClose, movieshow, setLoading, showAddwatch, setShowAddwatch }) => {
 
     return (
         <div className='section1'>
@@ -67,6 +67,7 @@ const Movies = ({ moviesData, setMovieshow, movieshow, setLoading, showAddwatch,
                             setLoading(false);
                             setShowAddwatch(true);
                             setMovieshow(result);
+                            setClose(false)
                         }}
                         className='movie-main'
                     >
