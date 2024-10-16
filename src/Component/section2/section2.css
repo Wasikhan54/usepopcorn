@@ -1,0 +1,153 @@
+
+.section2{
+
+    width: 34%;
+    height: 100vh;
+    background-color: #24292C;
+  }
+  
+  /* movie-div */
+  
+  .movie-main{
+   
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .movie-img{
+  width: 80px;
+  height: 80px;
+  }
+  .movie-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .movie-info{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100px;
+    width: 200px;
+  }
+  .movie-details{
+    color: white;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    height: 100vh !important;
+    /* justify-content: space-between; */
+    width: 100%;
+    background-color: #343A40;
+    flex-direction: column;
+  }
+  .movie-details-img{
+    width: 120px;
+    height: 150px;
+  }
+  .movie-details-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .movie-details-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .movie-details-info p{
+    font-size: 14px;
+  
+  }
+  .loading {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin: 20px;
+  }
+  .loading {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin: 20px;
+  }
+  .movie-details-div{
+    display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* or align-items: center if needed */
+      align-items: center !important;
+      height: 90vh; 
+  }
+  .star-div{
+    width: 60%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: #343A40;
+  }
+  .movie-para{
+    width: 80%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 15px;
+    gap: 20px;
+  }
+  .uperSecMain{
+  margin: 12px ;
+  border-radius: 5px;
+    background-color: #343A40;
+    height: 12vh;
+    gap: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .uperSec{
+   
+   gap: 20px; display: flex;
+    color: white;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center; 
+  }
+  
+  
+  .star-icon {
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .star-icon:hover {
+    color:  yellow; /* Change the background to yellow on hover */
+    /* background-color: yellow; */
+  }
+  
+  .star-info {
+    margin-top: 10px; /* Gap before the button */
+  }
+  .movietoddo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #343A40;
+    margin: 40px 12px;
+    border-radius:5px ;
+}
+.movietodo-info-div{
+    display: flex;
+    gap: 30px;
+    margin: 12px 0;
+}
