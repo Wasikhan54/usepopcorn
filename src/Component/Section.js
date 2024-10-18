@@ -7,7 +7,7 @@ import Addwatch from './section2/Addwatch.js';
 // import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 
-function Section({ input, setLoading }) {
+function Section({ input, setLoading, giveMeLength }) {
     const [moviesData, setMoviesData] = useState([])
     const [movieshow, setMovieshow] = useState({})
     const [showAddwatch, setShowAddwatch] = useState(false);
@@ -18,7 +18,6 @@ function Section({ input, setLoading }) {
     }, [input])
 
     const fetchApi = async () => {
-
         setLoading(true)
 
         const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=77bfa2af&s=${input}`)
@@ -28,6 +27,8 @@ function Section({ input, setLoading }) {
         setMoviesData(result)
     }
 
+    giveMeLength(moviesData?.Search?.length)
+    // console.log(moviesData?.Search?.length, "length");
     return (
         <div className='section-main'>
             <Movies moviesData={moviesData}
@@ -43,7 +44,6 @@ function Section({ input, setLoading }) {
         </div>
     )
 }
-
 
 
 export default Section

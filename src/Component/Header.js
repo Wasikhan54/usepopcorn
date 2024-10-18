@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-function Header({input, setInput}) {
+function Header({input, setInput,length}) {
     const inputHandler = (e) => {
       setInput(e.target.value)
       console.log(input)
@@ -16,7 +16,7 @@ function Header({input, setInput}) {
         <div className='search'>
           <input value={input} onChange={inputHandler} type="text" placeholder='Search Movies' />
         </div>
-        <p style={{ color: 'white',  fontSize: '14px'}}>Found 0 top results</p>
+        <p style={{ color: 'white',  fontSize: '14px'}}>Found {length} top results</p>
       </div>
     </>
   );
