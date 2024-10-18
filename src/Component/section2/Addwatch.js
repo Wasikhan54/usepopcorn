@@ -1,60 +1,58 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './section2.css';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'; // Import ArrowBackIcon for back action
 
-function Addwatch({ movieshow, visible, onBack  ,setClose, close })  {
-
-    // if (!visible) return null; // remove this line
-
+function Addwatch({ movieshow, setClose, close, cart, setCart }) {
     return (
         <>
-                <div>
-                <UperSecMain movieshow={movieshow} close={close} />
-            <MovieTodo movieshow={movieshow} setClose={setClose} close={close} />
+            <div>
+                <UperSecMain movieshow={movieshow} close={close} cart={cart} />
+                <MovieTodo movieshow={movieshow} setClose={setClose} close={close} cart={cart} setCart={setCart} />
             </div>
-           
         </>
     );
-    
 }
 
-const UperSecMain = ({ movieshow, close }) => {
+const UperSecMain = ({ movieshow, close, cart }) => {
     return (
         <>
-           
             <div className='uperSecMain'>
                 <h3>Movie you have Watched</h3>
                 <div className='uperSec'>
-                    <p>#️⃣ movies</p>
+                    <p>#️⃣ {cart.length} movies</p>
                     <p>⭐️ {movieshow?.imdbRating || '0.0'}</p>
                     <p>⏳ {movieshow?.Runtime || '0 min'}</p>
                 </div>
             </div>
-           
         </>
     );
 };
 
-const MovieTodo = ({ movieshow, setClose, close }) => {
+const MovieTodo = ({ cart, setCart }) => {
+    const deleteMovieHandler = (id) => {
+        setCart((prevCart) =>
+            prevCart.filter((movie) => movie.imdbID !== id) // Use correct imdbID for comparison
+        );
+    };
+
     return (
         <>
-          
-                <div className='movietoddo'>
+            {cart.map((movie,index) => (
+                <div className='movietoddo' key={movie.imdbID}> {/* Use imdbID as key */}
                     <div style={{ width: '80px', height: '80px' }}>
-                        <img width='100%' height='100%' src='/images/logo.png' alt="Logo" />
+                        <img width='100%' height='100%' src={movie.img} alt="Movie Poster" />
                     </div>
                     <div className='movietodo-info'>
-                        <p>{movieshow.Title} has been added to your watchlist!</p>
+                        <p>{movie.title}</p>
                         <div className='movietodo-info-div'>
-                            <p>⭐️ {movieshow?.imdbRating || '0.0'}</p>
-                            <p>🌟 {movieshow?.Genre || 'N/A'}</p>
-                            <p>⏳ {movieshow?.Runtime || '0 min'}</p>
-                            <DeleteIcon onClick={() => setClose(true)} /> {/* Hide the MovieTodo section on delete */}
+                            <p>⭐️ {movie.rating || '0.0'}</p>
+                            <p>🌟 {movie.userRating || 'N/A'}</p>
+                            <p>⏳ {movie.runtime || '0 min'}</p>
+                            <DeleteIcon onClick={() => deleteMovieHandler(movie.imdbID)} /> {/* Pass correct imdbID */}
                         </div>
                     </div>
                 </div>
-       
+            ))}
         </>
     );
 };
